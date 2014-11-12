@@ -1,0 +1,476 @@
+
+/* [touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+ */
+body {
+	background : #D3D3D3;
+	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	color : #134B13;
+}
+
+div.Rhombus {
+	width: 500px; 
+	margin: 0 auto;
+}
+
+
+div.GameHeader:after{ 
+	clear: both;
+	content: "";
+	display: block;
+}
+
+h1.Title {
+	font-size: 56px;
+	font-weight: bold;
+	margin: 0;
+	display: block;
+	float: left;
+}
+
+div.Help {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	margin: 0px;
+	background-image: url("./img/question-64x64.png");
+}
+
+div.GameDescription {
+	display: none; 
+	width: 500px; 
+	height: 500px;
+	margin: 0 auto;
+	position: absolute;
+	background: rgba(238, 228, 218, 0.8);
+	z-index: 100;
+	overflow-y: auto;
+	font-size: 24px;
+	text-align: center;
+}
+
+div.GameScore{
+	display : inline-block;
+	font-size: 24px;
+	text-align: center;
+	float: right;
+	margin : 6px;
+}
+
+div.RoundScore{
+	display: block;
+	text-align: left;
+	font-size: 18px;
+}
+
+div.Board {
+	display : block;  /* actualy block is default value for div-element */
+	text-align: center;
+	
+	background: #006800;
+	border-radius: 6px;
+	width: 500px;
+	height: 500px;
+	
+	position: relative; 
+		
+	-webkit-touch-callout: none;
+	-ms-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-ms-touch-action: none;
+	touch-action: none;	
+}
+
+
+div.board-line {
+	margin-left : 0px;
+	margin-top : 1px;
+	height : 45px;
+	display: inline-block;
+}
+
+div.board-tile {
+	width: 70px;
+	height: 70px;
+	margin: 14px;
+	
+	float: left;
+	border-style: solid;
+	border-radius: 1px;
+	border-width: 1px;
+	border-color: #d3d3d3;
+	background : #2DB32D;
+	
+	-moz-transform: rotate(-45deg);  /* Firefox */
+	-o-transform: rotate(-45deg);  /* Opera */
+	-webkit-transform: rotate(-45deg);  /* Safari y Chrome */
+	-ms-transform: rotate(-45deg); /* IE */
+}
+
+div.rhomb-tile {
+	width: 70px;
+	height: 70px;
+	margin: 14px;
+	
+	float: left;
+	border-style: solid;
+	border-radius: 1px;
+	border-width: 1px;
+	border-color: #ccc; 
+	background : #00BFFF;
+	opacity : 0.8;
+	
+	-moz-transform: rotate(-45deg);  /* Firefox */
+	-o-transform: rotate(-45deg);  /* Opera */
+	-webkit-transform: rotate(-45deg);  /* Safari y Chrome */
+	-ms-transform: rotate(-45deg); /* IE */
+	transform: rotate(-45deg);
+}
+
+div.mark-line { 
+	 height : 0px; 
+	 display: block;
+}
+
+div.blank-mark {
+	width: 0px;
+    height: 0px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid transparent;
+ 	display: inline-block;
+}
+
+div.start-mark {
+    width: 0px;
+    height: 0px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+	border-top: 51px solid #00BFFF;
+	opacity: 0.8;
+	display: inline-block;
+}
+
+div.num {
+	margin-top: 16px;
+	font-size: 32px;
+	
+	-moz-transform: rotate(45deg);  /* Firefox */
+	-o-transform: rotate(45deg);  /* Opera */
+	-webkit-transform: rotate(45deg);  /* Safari Chrome */
+	-ms-transform: rotate(45deg); /* IE */
+}
+
+div.GameOver {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(238, 228, 218, 0.5);
+	z-index: 100;
+	text-align: center;
+}	
+	
+p.GameOver{
+	font-size: 60px;
+	font-weight: bold;
+	height: 60px; 
+	line-height: 60px;
+	margin-top: 120px;
+}
+
+p.GameRestart { 
+	font-size: 60px;
+	font-weight: bold;
+	height: 60px; 
+	line-height: 60px;
+	margin-top: 120px;
+	text-decoration: underline;
+}
+
+div.Footer {
+	margin: 10px;
+}
+
+div.Donate {
+	display: inline;
+	float: right;
+} 
+
+ 
+@media screen and (max-width: 430px),
+only screen and (max-device-width: 430px) 
+{
+
+	div.Rhombus {
+		width: 255px; 
+	}
+
+	h1.Title {
+		font-size: 32px;
+	}
+
+	div.Help {
+		width: 32px;
+		height: 32px;
+		margin: 2px;
+		background-image: url("./img/question-32x32.png");
+	}
+
+	div.GameDescription {
+		width: 255px; 
+		height: 255px;
+		font-size: 12px;
+	}
+	
+	
+	div.GameScore{
+		font-size: 12px;
+		margin : 6px;
+	}
+
+	div.RoundScore{
+		font-size: 12px;
+	}
+
+	div.Board {
+		border-radius: 6px;
+		width: 255px;
+		height: 255px;
+	}	
+
+	div.board-line {
+		height : 20px;
+	}
+
+	div.board-tile {
+		width: 35px;
+		height: 35px;
+		margin: 7px;
+	}
+
+	div.rhomb-tile {
+		width: 35px;
+		height: 35px;
+		margin: 7px;
+		
+	}
+
+	div.blank-mark {
+		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+		border-top: 25px solid transparent;
+	}
+
+	div.start-mark {
+		border-left: 26px solid transparent;
+		border-right: 26px solid transparent;
+		border-top: 26px solid #00BFFF;
+	}
+
+	div.num {
+		margin-top: 8px;
+		font-size: 16px;
+	}
+
+	p.GameOver{
+		font-size: 30px;
+		height: 30px; 
+		line-height: 30px;
+		margin-top: 75px;
+	}
+	
+	p.GameRestart { 
+		font-size: 30px;
+		height: 30px;
+		line-height: 30px;
+		margin-top: 75px;
+	}
+}
+
+@media screen and (max-width: 540px) and (min-width: 431px),
+only screen and (max-device-width: 540px) and (min-device-width: 431px) 
+{
+	div.Rhombus {
+		width: 420px; 
+	}
+
+	h1.Title {
+		font-size: 42px;
+	}
+
+	div.Help {
+		width: 32px;
+		height: 32px;
+		margin: 6px;
+		background-image: url("./img/question-32x32.png");
+	}
+
+	div.GameDescription {
+		width: 420px; 
+		height: 420px;
+		font-size: 20px;
+	}
+	
+	
+	div.GameScore{
+		font-size: 18px;
+		margin : 9px;
+	}
+
+	div.RoundScore{
+		font-size: 18px;
+	}
+
+	div.Board {
+		border-radius: 6px;
+		width: 420px;
+		height: 420px;
+	}	
+
+	div.board-line {
+		height : 37px;
+	}
+
+	div.board-tile {
+		width: 58px;
+		height: 58px;
+		margin: 12px;
+	}
+
+	div.rhomb-tile {
+		width: 58px;
+		height: 58px;
+		margin: 12px;
+		
+	}
+
+	div.blank-mark {
+		border-left: 42px solid transparent;
+		border-right: 42px solid transparent;
+		border-top: 42px solid transparent;
+	}
+
+	div.start-mark {
+		border-left: 42px solid transparent;
+		border-right: 42px solid transparent;
+		border-top: 43px solid #00BFFF;
+	}
+
+	div.num {
+		margin-top: 12px;
+		font-size: 24px;
+	}
+
+	p.GameOver{
+		font-size: 42px;
+		height: 42px; 
+		line-height: 42px;
+		margin-top: 100px;
+	}
+	
+	p.GameRestart { 
+		font-size: 42px;
+		height: 42px;
+		line-height: 42px;
+		margin-top: 100px;
+	}
+
+}
+
+
+@media screen and (min-width: 1400px),
+only screen and (min-device-width: 1400px) 
+{
+	div.Rhombus {
+		width: 896px;
+	}
+
+	h1.Title {
+		font-size: 82px;
+	}
+
+	div.Help {
+		width: 64px;
+		height: 64px;
+		margin: 12px;
+		background-image: url("./img/question-64x64.png");
+	}
+
+	div.GameDescription {
+		width: 896px; 
+		height: 896px;
+		font-size: 44px;
+	}
+	
+	
+	div.GameScore{
+		font-size: 42px;
+		margin : 18px;
+	}
+
+	div.RoundScore{
+		font-size: 42px;
+	}
+
+	div.Board {
+		border-radius: 8px;
+		width: 896px;
+		height: 896px;
+	}	
+
+	div.board-line {
+		height : 84px;
+	}
+
+	div.board-tile {
+		width: 124px;
+		height: 124px;
+		margin: 25px;
+	}
+
+	div.rhomb-tile {
+		width: 124px;
+		height: 124px;
+		margin: 25px;
+		
+	}
+
+	div.blank-mark {
+		border-left: 88px solid transparent;
+		border-right: 88px solid transparent;
+		border-top: 88px solid transparent;
+	}
+
+	div.start-mark {
+		border-left: 88px solid transparent;
+		border-right: 88px solid transparent;
+		border-top: 88px solid #00BFFF;
+	}
+
+	div.num {
+		margin-top: 30px;
+		font-size: 48px;
+	}	
+	
+	p.GameOver{
+		font-size: 84px;
+		height: 84px; 
+		line-height: 84px;
+		margin-top: 200px;
+	}
+	
+	p.GameRestart { 
+		font-size: 84px;
+		height: 84px;
+		line-height: 84px;
+		margin-top: 200px;
+	}
+
+}
