@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Rhombus</title>
+  <link href="style.css" media="all" rel="stylesheet" type="text/css"/>
+  <script src="./js/rhombclass.js"></script>
+  <script src="./js/boardclass.js"></script>
+  <script src="./js/uiclass.js"></script>
+  <script src="./js/rhombusgame.js"></script>
+  <script src="./js/inputhandler.js"></script>
+  <script src="phonegap.js"></script>
+</head>		
+
+<body onload = "initGame()">
+<div class = "Rhombus">
+	<div class = "GameHeader">
+		<h1 class="Title">Rhombus</h1>
+		<div class="Help" id="Help"></div>
+		<div class="GameScore">
+			Score:
+			<div id="GameScore">&nbsp;</div>
+		</div>
+	</div>
+	<div class="RoundScore">
+		Sequence: <span id="CurrentScore">&nbsp;</span>
+		<span id="Sequence">&nbsp;</span>
+	</div>
+	<div class="GameOver" id="GameOver">
+		<p class="GameOver">Game Over!</p>
+		<p class="GameRestart" id="GameRestart">Try again.</p>
+<!-- 		
+		<a class="twitter-share-button" href="https://twitter.com/share"
+		data-size="large"
+		data-related="Rhombus">
+		</a>
+		<script type="text/javascript">
+		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+		</script> 
+-->
+	</div>
+	<div class="GameDescription" id="HelpPage1">
+	<p><strong>Rules of the game</strong>&nbsp;|&nbsp;<a id="Controls">Controls</a></p>
+	 Just pave the way with non-negative result (i.e. zero or greater).
+	 Each move shifts down your <strong>Rhomb</strong> and increases or decreases your current <strong>sequence</strong> by the specified value in tile. When your <strong>Rhomb</strong> reaches lower tile next move will lift <strong>Rhomb</strong> up and continue the game if your current sequence is not negative, otherwise the game will is over. <strong>Score of the game</strong> updates only when <strong>Rhomb</strong> lifts up.	 
+	 Good luck!
+	</div>
+	<div class="GameDescription" id="HelpPage2">
+	<p><a id="Rules">Rules of the game</a>&nbsp;|&nbsp;<strong>Controls</strong></p>
+	 <li><strong>Move</strong> - use <strong>left and right arrows</strong>, <strong>A or D</strong> keys or <strong>left-right swipe</strong>.</li>
+	 <li><strong>Restart</strong> - tap <strong>Try again</strong> or press <strong>R or N</strong> key.</li>
+	</div>
+	<div class="Board" id="Board">
+	</div>
+	<div class="Footer">
+		<a href="https://github.com/rhavik/Rhombus">Original version</a>. 
+	</div>
+</div>
+</body></html>
